@@ -1,0 +1,14 @@
+import urllib.request
+with urllib.request.urlopen('https://www.kau.edu.sa/Home.aspx') as response:
+   html = response.read()
+   print(html)
+
+   url = ('https://www.kau.edu.sa/Home.aspx')  
+values = {'s':'basic','submit' : 'search'}
+data = urllib.parse.urlencode(values)
+data = data .encode('utf-8')
+req = urllib.request.Request(url,data)
+resp =  urllib.request.urlopen(req)
+respData = resp.read()
+
+print (respData)
